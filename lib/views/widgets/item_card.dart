@@ -26,7 +26,7 @@ class ItemCard extends StatelessWidget {
           Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 13),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -138,7 +138,7 @@ class ItemCard extends StatelessWidget {
                         ),
 
                         // Unfinished Tasks Text
-                        const Flexible(
+                        const Expanded(
                           child: Text(
                             "4 unfinished tasks",
                             overflow: TextOverflow.ellipsis,
