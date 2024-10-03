@@ -35,7 +35,8 @@ class ItemsListSection extends StatelessWidget {
             crossAxisSpacing: 16,
             mainAxisSpacing: 10,
             crossAxisCount: crossAxisCount,
-            mainAxisExtent: 322, // Adjust item height
+            mainAxisExtent:
+                crossAxisCount != 1 ? 322 : 314, // Adjust item height
           ),
           physics: const NeverScrollableScrollPhysics(),
           itemCount: 8,

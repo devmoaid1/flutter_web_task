@@ -62,8 +62,10 @@ class ItemCard extends StatelessWidget {
 
                     // Item Title
                     ConstrainedBox(
-                      constraints:
-                          BoxConstraints(maxWidth: constraints.maxWidth * 0.16),
+                      constraints: BoxConstraints(
+                          maxWidth: constraints.maxWidth < 450
+                              ? constraints.maxWidth * 0.9
+                              : constraints.maxWidth * 0.15),
                       child: Text(
                         "item Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
                         overflow: TextOverflow.ellipsis,

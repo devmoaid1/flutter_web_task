@@ -43,6 +43,10 @@ class HeadingWidget extends StatelessWidget {
               ),
             if (!showOptionsRow)
               SizedBox(
+                width: constraints.maxWidth * 0.02,
+              ),
+            if (!showOptionsRow)
+              SizedBox(
                 width: constraints.maxWidth *
                     0.012, // Dynamic size based on height
               ),
