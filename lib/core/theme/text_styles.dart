@@ -14,11 +14,11 @@ class AppTextStyles {
       fontWeight: FontWeight.normal,
       color: AppColors.white);
 
-  static const TextStyle h3 = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 22, // Size for Header 3
-    fontWeight: FontWeight.w500,
-  );
+  static const TextStyle headingWhite22Normal = TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 22, // Size for Header 3
+      fontWeight: FontWeight.w500,
+      color: AppColors.white);
   static const TextStyle bodyText18Normal = TextStyle(
       fontFamily: 'Inter',
       fontSize: 18, // Size for Body Text 1

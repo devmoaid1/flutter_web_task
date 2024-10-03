@@ -7,4 +7,6 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color darkGray = Color(0xFF171717);
   static const Color orange = Color(0xFFC25F30);
+  static const Color dividerColorThick = Color(0xFF484848); // New color
+  static const Color dividerColorThin = Color(0xFF262626);
 }
