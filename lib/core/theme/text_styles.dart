@@ -34,9 +34,9 @@ class AppTextStyles {
       fontSize: 14, // Size for Body Text 2
       fontWeight: FontWeight.normal,
       color: AppColors.gray);
-  static const TextStyle bodyText2 = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 12, // Size for Body Text 2
-    fontWeight: FontWeight.normal,
-  );
+  static const TextStyle bodyText12Normal = TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 12, // Size for Body Text 2
+      fontWeight: FontWeight.normal,
+      color: AppColors.gray);
 }
