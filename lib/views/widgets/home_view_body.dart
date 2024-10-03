@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_web_task/views/widgets/item_card.dart';
 import 'package:flutter_web_task/views/widgets/items_heading_row.dart';
 
 import 'heading_widget.dart';
@@ -13,22 +12,26 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          HeadingWidget(),
-          SizedBox(
-            height: 26,
-          ),
-          ItemHeadingRow(),
-          SizedBox(
-            height: 40,
-          ),
-          ItemsListWidget(),
-          SizedBox(
-            height: 32,
-          )
-        ],
+    return LayoutBuilder(
+      builder: (context, constraints) => SingleChildScrollView(
+        child: Column(
+          children: [
+            HeadingWidget(
+              constraints: constraints,
+            ),
+            SizedBox(
+              height: constraints.maxHeight * 0.04,
+            ),
+            const ItemHeadingRow(),
+            SizedBox(
+              height: constraints.maxHeight * 0.04,
+            ),
+            const ItemsListWidget(),
+            const SizedBox(
+              height: 32,
+            )
+          ],
+        ),
       ),
     );
   }

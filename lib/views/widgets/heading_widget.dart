@@ -7,12 +7,19 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/text_styles.dart';
 
 class HeadingWidget extends StatelessWidget {
+  final BoxConstraints constraints;
+
   const HeadingWidget({
     super.key,
+    required this.constraints,
   });
 
   @override
   Widget build(BuildContext context) {
+    // Determine whether to show the OptionsRow based on passed constraints
+    bool showOptionsRow =
+        constraints.maxWidth > 800; // Example threshold for larger screens
+
     return Padding(
       padding: const EdgeInsets.only(
         bottom: 18,
@@ -24,34 +31,66 @@ class HeadingWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              width: 80,
+            SizedBox(
+              width: showOptionsRow
+                  ? constraints.maxWidth * 0.08
+                  : constraints.maxWidth * 0.02, // Dynamic size based on height
             ),
+            if (!showOptionsRow)
+              const Icon(
+                Icons.menu,
+                color: AppColors.white,
+              ),
+            if (!showOptionsRow)
+              SizedBox(
+                width: constraints.maxWidth *
+                    0.012, // Dynamic size based on height
+              ),
             SvgPicture.asset(AppAssets.logo),
             const Spacer(),
             Row(
               children: [
-                const OptionsRow(),
-                const CustomDivider(color: AppColors.dividerColorThin),
-                const SizedBox(width: 20),
-                SvgPicture.asset(AppAssets.settings),
-                const SizedBox(width: 20),
-                SvgPicture.asset(AppAssets.notifications),
-                const SizedBox(width: 20),
-                const CustomDivider(color: AppColors.dividerColorThick),
-                const SizedBox(width: 20),
-                Image.asset(AppAssets.profile),
-                const SizedBox(width: 20),
-                Text('John Doe',
-                    style: AppTextStyles.bodyText14Normal
-                        .copyWith(color: AppColors.white)),
-                const SizedBox(width: 12),
-                const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: AppColors.white,
+                // Only show OptionsRow if on desktop
+                if (showOptionsRow) const OptionsRow(),
+                if (showOptionsRow)
+                  const CustomDivider(color: AppColors.dividerColorThin),
+                if (!showOptionsRow) const SizedBox(height: 60),
+                SizedBox(
+                  width: constraints.maxWidth * 0.02,
                 ),
-                const SizedBox(
-                  width: 80,
+                SvgPicture.asset(AppAssets.settings),
+                SizedBox(
+                  width: constraints.maxWidth * 0.02,
+                ),
+                SvgPicture.asset(AppAssets.notifications),
+                SizedBox(
+                  width: constraints.maxWidth * 0.02,
+                ),
+
+                const CustomDivider(color: AppColors.dividerColorThick),
+                SizedBox(
+                  width: constraints.maxHeight * 0.02,
+                ),
+                Image.asset(AppAssets.profile),
+                SizedBox(
+                  width: constraints.maxWidth * 0.012,
+                ),
+                if (showOptionsRow)
+                  Text(
+                    'John Doe',
+                    style: AppTextStyles.bodyText14Normal
+                        .copyWith(color: AppColors.white),
+                  ),
+                if (showOptionsRow) const SizedBox(width: 4),
+                if (showOptionsRow)
+                  const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: AppColors.white,
+                  ),
+                SizedBox(
+                  width: showOptionsRow
+                      ? constraints.maxWidth * 0.08
+                      : constraints.maxWidth * 0.01,
                 )
               ],
             )
@@ -96,6 +135,7 @@ class OptionsRow extends StatelessWidget {
 class NavigationItem extends StatelessWidget {
   final bool? isSelected;
   final String title;
+
   const NavigationItem({
     super.key,
     this.isSelected,
@@ -109,10 +149,12 @@ class NavigationItem extends StatelessWidget {
         const SizedBox(
           height: 27,
         ),
-        Text(title,
-            style: isSelected != null && isSelected == true
-                ? AppTextStyles.bodyText14Medium
-                : AppTextStyles.bodyText14Normal),
+        Text(
+          title,
+          style: isSelected != null && isSelected == true
+              ? AppTextStyles.bodyText14Medium
+              : AppTextStyles.bodyText14Normal,
+        ),
         const SizedBox(
           height: 27,
         ),

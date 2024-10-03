@@ -13,132 +13,137 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: AppColors.darkGray, borderRadius: BorderRadius.circular(8)),
+        color: AppColors.darkGray,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const ImageStack(),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Use a Flexible widget with a limited width
                 ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 213),
                   child: Text(
-                    "item Title",
+                    "item Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
                     overflow: TextOverflow.ellipsis,
                     style: AppTextStyles.bodyText18Normal
                         .copyWith(color: AppColors.white),
                   ),
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Row(
                   children: [
-                    SvgPicture.asset(
-                      AppAssets.calendar,
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 213),
-                      child: Text(
-                        "5 Nights (Jan 16 - Jan 20, 2024) ",
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.bodyText12Normal
-                            .copyWith(color: AppColors.white),
+                    SvgPicture.asset(AppAssets.calendar),
+                    const SizedBox(width: 6),
+                    // Use a Flexible widget with a limited width
+                    Expanded(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 200),
+                        child: Text(
+                          "5 Nights (Jan 16 - Jan 20, 2024)",
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextStyles.bodyText12Normal
+                              .copyWith(color: AppColors.white),
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 12,
-                ),
+                const SizedBox(height: 12),
                 const CustomDivider(
                   color: AppColors.dividerColorThin,
                   width: double.infinity,
                   height: 1,
                 ),
-                const SizedBox(
-                  height: 12,
-                ),
+                const SizedBox(height: 12),
                 Row(
                   children: [
                     Expanded(
                       child: Stack(
-                        fit: StackFit.loose,
+                        alignment: Alignment.centerLeft,
                         children: [
+                          // Image Avatar
                           Container(
                             width: 24,
                             height: 24,
                             decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(AppAssets.profile))),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(AppAssets.profile),
+                              ),
+                            ),
                           ),
+                          // First Circle Border
                           Positioned(
                             left: 10,
                             child: Container(
                               width: 24,
                               height: 24,
                               decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.white,
-                                  border: Border.all(
-                                      color: AppColors.dividerColorThin)),
+                                shape: BoxShape.circle,
+                                color: AppColors.white,
+                                border: Border.all(
+                                    color: AppColors.dividerColorThin),
+                              ),
                             ),
                           ),
+                          // Second Circle Border
                           Positioned(
                             left: 20,
                             child: Container(
                               width: 24,
                               height: 24,
                               decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.white,
-                                  border: Border.all(
-                                      color: AppColors.dividerColorThin)),
+                                shape: BoxShape.circle,
+                                color: AppColors.white,
+                                border: Border.all(
+                                    color: AppColors.dividerColorThin),
+                              ),
                             ),
                           ),
+                          // +6 Count Circle
                           Positioned(
                             left: 30,
                             child: Container(
-                                width: 24,
-                                height: 24,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.dividerColorThin,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '+6',
-                                    style: AppTextStyles.bodyText12Normal
-                                        .copyWith(
-                                            color: AppColors.lightOrange,
-                                            fontSize: 8),
+                              width: 24,
+                              height: 24,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.dividerColorThin,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '+6',
+                                  style:
+                                      AppTextStyles.bodyText12Normal.copyWith(
+                                    color: AppColors.lightOrange,
+                                    fontSize: 8,
                                   ),
-                                )),
-                          )
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                     const Spacer(),
+                    // Using Flexible for unfinished tasks text
                     const Text(
                       "4 unfinished tasks",
                       style: AppTextStyles.bodyText12Normal,
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
