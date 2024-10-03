@@ -7,9 +7,11 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/text_styles.dart';
 
 class ItemCard extends StatelessWidget {
+  final bool isLongTitle;
   final BoxConstraints constraints;
 
-  const ItemCard({super.key, required this.constraints});
+  const ItemCard(
+      {super.key, required this.constraints, required this.isLongTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +63,19 @@ class ItemCard extends StatelessWidget {
                     ),
 
                     // Item Title
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          maxWidth: constraints.maxWidth < 450
-                              ? constraints.maxWidth * 0.9
-                              : constraints.maxWidth * 0.15),
-                      child: Text(
-                        "item Titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.bodyText18Normal
-                            .copyWith(color: AppColors.white),
-                      ),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            !isLongTitle
+                                ? "item"
+                                : "Long item title highlighting",
+                            overflow: TextOverflow.ellipsis,
+                            style: AppTextStyles.bodyText18Normal
+                                .copyWith(color: AppColors.white),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 8),
 

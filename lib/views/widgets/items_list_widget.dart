@@ -42,8 +42,10 @@ class ItemsListSection extends StatelessWidget {
           itemCount: 8,
           shrinkWrap: true,
           itemBuilder: (context, index) {
+            bool isLongText = index == 1;
             return ItemCard(
               constraints: constraints,
+              isLongTitle: isLongText,
             ); // Your item widget
           },
         );
