@@ -64,6 +64,7 @@ class ItemCard extends StatelessWidget {
 
                     // Item Title
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
                           child: Text(
@@ -138,7 +139,7 @@ class ItemCard extends StatelessWidget {
                         ),
 
                         // Unfinished Tasks Text
-                        const Expanded(
+                        const Flexible(
                           child: Text(
                             "4 unfinished tasks",
                             overflow: TextOverflow.ellipsis,
