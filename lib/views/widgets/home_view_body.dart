@@ -22,13 +22,13 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(
               height: constraints.maxHeight * 0.04,
             ),
-            const ItemHeadingRow(),
+            ItemHeadingSection(constraints: constraints),
             SizedBox(
               height: constraints.maxHeight * 0.04,
             ),
-            const ItemsListWidget(),
-            const SizedBox(
-              height: 32,
+            const ItemsListSection(),
+            SizedBox(
+              height: constraints.maxHeight * 0.032,
             )
           ],
         ),
