@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_web_task/views/widgets/items_heading_row.dart';
+import 'package:flutter_web_task/views/widgets/items_main_section.dart';
 
 import 'heading_widget.dart';
-import 'items_list_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -22,11 +21,7 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(
               height: constraints.maxHeight * 0.04,
             ),
-            ItemHeadingSection(constraints: constraints),
-            SizedBox(
-              height: constraints.maxHeight * 0.04,
-            ),
-            const ItemsListSection(),
+            const ItemsMainSection(),
             SizedBox(
               height: constraints.maxHeight * 0.032,
             )

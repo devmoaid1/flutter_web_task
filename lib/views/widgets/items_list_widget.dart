@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_task/core/util/responsive_helper.dart';
 
+import '../../core/util/devices_enum.dart';
 import 'item_card.dart';
 
 class ItemsListSection extends StatelessWidget {
@@ -12,31 +14,23 @@ class ItemsListSection extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         // Define the number of columns based on the available width
+
         int crossAxisCount;
 
-        if (constraints.maxWidth > 1200) {
+        if (ResponsiveHelper.getDevice(context) == Device.desktop) {
           crossAxisCount = 5; // Large screens (desktop)
-        } else if (constraints.maxWidth > 800) {
-          crossAxisCount = 4; // Medium screens (tablet)
-        } else if (constraints.maxWidth > 600) {
-          crossAxisCount = 3; // Small tablets or large phones
-        } else if (constraints.maxWidth > 450) {
-          crossAxisCount = 2; // Small phones
+        } else if (ResponsiveHelper.getDevice(context) == Device.tablet) {
+          crossAxisCount = 3; // Medium screens (tablet)
         } else {
           crossAxisCount = 1;
         }
 
         return GridView.builder(
-          padding: EdgeInsets.symmetric(
-              horizontal: crossAxisCount == 1
-                  ? constraints.maxWidth * 0.022
-                  : constraints.maxWidth * 0.08),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 16,
             mainAxisSpacing: 10,
             crossAxisCount: crossAxisCount,
-            mainAxisExtent:
-                crossAxisCount != 1 ? 322 : 314, // Adjust item height
+            mainAxisExtent: 314, // Adjust item height
           ),
           physics: const NeverScrollableScrollPhysics(),
           itemCount: 8,
@@ -44,7 +38,6 @@ class ItemsListSection extends StatelessWidget {
           itemBuilder: (context, index) {
             bool isLongText = index == 1;
             return ItemCard(
-              constraints: constraints,
               isLongTitle: isLongText,
             ); // Your item widget
           },

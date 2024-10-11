@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_web_task/core/util/responsive_helper.dart';
 import 'package:flutter_web_task/core/widgets/custom_divider.dart';
 
 import '../../core/constants/app_assets.dart';
@@ -8,10 +9,8 @@ import '../../core/theme/text_styles.dart';
 
 class ItemCard extends StatelessWidget {
   final bool isLongTitle;
-  final BoxConstraints constraints;
 
-  const ItemCard(
-      {super.key, required this.constraints, required this.isLongTitle});
+  const ItemCard({super.key, required this.isLongTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +50,21 @@ class ItemCard extends StatelessWidget {
                             child: Text(
                               "Pending Approval",
                               overflow: TextOverflow.ellipsis,
-                              style: AppTextStyles.bodyText14Normal
-                                  .copyWith(color: AppColors.white),
+                              style: AppTextStyles.bodyText14Normal.copyWith(
+                                  color: AppColors.white,
+                                  fontSize:
+                                      ResponsiveHelper.getResponsiveFontSize(
+                                          context, 14)),
                             ),
                           ),
-                          const SizedBox(width: 9),
-                          const Icon(Icons.keyboard_arrow_down,
-                              color: AppColors.white),
+                          SizedBox(
+                              width: ResponsiveHelper.screenWidth(context) *
+                                  0.009),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                            color: AppColors.white,
+                            size: ResponsiveHelper.screenWidth(context) * 0.02,
+                          ),
                         ],
                       ),
                     ),
@@ -72,8 +79,11 @@ class ItemCard extends StatelessWidget {
                                 ? "item"
                                 : "Long item title highlighting",
                             overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.bodyText18Normal
-                                .copyWith(color: AppColors.white),
+                            style: AppTextStyles.bodyText18Normal.copyWith(
+                                color: AppColors.white,
+                                fontSize:
+                                    ResponsiveHelper.getResponsiveFontSize(
+                                        context, 18)),
                           ),
                         ),
                       ],
@@ -85,11 +95,14 @@ class ItemCard extends StatelessWidget {
                       children: [
                         SvgPicture.asset(AppAssets.calendar),
                         const SizedBox(width: 6),
-                        const Expanded(
+                        Expanded(
                           child: Text(
                             "5 Nights (Jan 16 - Jan 20, 2024)",
                             overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.bodyText12Normal,
+                            style: AppTextStyles.bodyText12Normal.copyWith(
+                                fontSize:
+                                    ResponsiveHelper.getResponsiveFontSize(
+                                        context, 12)),
                           ),
                         ),
                       ],
@@ -139,11 +152,14 @@ class ItemCard extends StatelessWidget {
                         ),
 
                         // Unfinished Tasks Text
-                        const Flexible(
+                        Flexible(
                           child: Text(
                             "4 unfinished tasks",
                             overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.bodyText12Normal,
+                            style: AppTextStyles.bodyText12Normal.copyWith(
+                                fontSize:
+                                    ResponsiveHelper.getResponsiveFontSize(
+                                        context, 12)),
                           ),
                         ),
                       ],
