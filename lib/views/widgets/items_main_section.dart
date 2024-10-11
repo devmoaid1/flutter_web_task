@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_task/core/util/responsive_helper.dart';
 
 import '../../core/util/devices_enum.dart';
-import 'items_heading_row.dart';
+import 'items_heading_section.dart';
 import 'items_list_widget.dart';
 
 class ItemsMainSection extends StatelessWidget {
