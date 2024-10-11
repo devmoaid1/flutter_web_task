@@ -3,7 +3,7 @@ import 'package:flutter_web_task/core/util/responsive_helper.dart';
 
 import '../../core/util/devices_enum.dart';
 import 'items_heading_section.dart';
-import 'items_list_widget.dart';
+import 'items_list_section.dart';
 
 class ItemsMainSection extends StatelessWidget {
   const ItemsMainSection({super.key});
