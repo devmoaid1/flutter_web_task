@@ -10,13 +10,10 @@ class ItemsMainSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final device = ResponsiveHelper.getDevice(context);
-    final screenWidth = ResponsiveHelper.screenWidth(context);
-    print("screen width: $screenWidth");
-
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: device == Device.mobile ? 22 : 80),
+      padding: EdgeInsets.symmetric(
+          horizontal:
+              ResponsiveHelper.getDevice(context) == Device.mobile ? 22 : 80),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
